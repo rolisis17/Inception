@@ -16,7 +16,7 @@ RUN chmod 777 ./script.sh
 
 RUN mysql_install_db
 # Expose port
-#EXPOSE 3306
+EXPOSE 3306
 
 ENTRYPOINT [ "./script.sh" ]
 

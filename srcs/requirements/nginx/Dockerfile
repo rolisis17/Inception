@@ -19,5 +19,6 @@ COPY nginx.conf /etc/nginx/conf.d
 
 # Expose ports
 #EXPOSE 443
+RUN echo "AQUI ESTOU EU! COM SEU CU"
 
 CMD ["nginx", "-g", "daemon off;"]

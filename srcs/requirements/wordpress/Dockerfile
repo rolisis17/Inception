@@ -8,8 +8,8 @@ RUN apt-get install -y curl php7.4-fpm php-mysql php-curl php-gd php-mbstring ph
 	php-xmlrpc php-soap php-intl php-zip mariadb-client && \
     rm -rf /var/lib/apt/lists/*
 
-RUN mkdir -p /run/php/ && chmod 755 /run/php/
 RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+RUN mkdir -p /run/php/ && chmod 755 /run/php/
 
 RUN chmod +x wp-cli.phar
 RUN whereis php-fpm
@@ -28,6 +28,6 @@ COPY script.sh .
 RUN chmod +x script.sh
 
 # Expose port
-#EXPOSE 9000
+EXPOSE 9000
 
 ENTRYPOINT ["./script.sh", "/usr/sbin/php-fpm7.4", "-F", "-R"]
